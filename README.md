@@ -4,9 +4,10 @@ Simple http-server with a user API
 
 ##  TODO
 
+* Clone this repo and using [duplicating](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/duplicating-a-repository) create your own repository on GitHub or GitLab
+* **Important!** Make your repository **PRIVATE**
 * Find all the TODO comments and enrich this app
-* **Important!** Make your repository on GitHub or GitLab **PRIVATE**
-* If you have question, ask me by email sergei@adaltas.com
+* If you have questions, ask me by email sergei@adaltas.com (link your private repo, if you have technical questions and invite me to you project)
 
 ## Functionality
 
