@@ -1,5 +1,9 @@
 # Changelog
 
+## Trunk
+
+* change 2
+
 ## Version 1.2.0
 
 * Update README
