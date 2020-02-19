@@ -67,3 +67,5 @@ Sergei Kudinov
 sergei@adaltas.com
 
 TEST 2
+
+Test CI
