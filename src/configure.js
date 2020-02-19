@@ -1,5 +1,6 @@
 const path = require('path')
 const mixme = require('mixme')
+const fs = require('fs')
 config_default = require('../conf/default')
 
 module.exports = (config_user = {}) => {
