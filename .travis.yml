@@ -1,9 +1,16 @@
 language: node_js
 node_js:
-- '10'
+- '12'
 - '13'
 script:
 - echo 'Starting'
 - npm install
 - echo 'Testing'
 - npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: sqAzcXlMu1R4k86beRnCJpPMQA3k9pBnmax7rUy2qSjOwKS7rwC8uoEL/YpSckzKJ/+q1lt+ktK89A3m1eYyq8dcyRoKKDCSG3cWJQyCmm21ilFxkPe/9UwB542l3vZ/PLl24pDOj8IzHCrFdvlMTbOYMQXghOp1fUwfq4imCE4zEjt8/CHZAsfsM+XUh1bAPh4QSeLG3AWQ/PEhwpGyDeJiq5z3nONGY2HojzbKUWZwkvOjxwm5NGaL4W0tsYab5ERbUCbeZohkdaOcaZpm7gufKnRd0/p334lVb918qjfdGFhNtDkBkptRrZktVnrHPS2XxC+VzdMFfYaObjwl/wN7TSueYLgijwjkXm+n3VanValscPZdsNJODgfJsC3c5ZbI6ELCaoK3wgqeL0til+aglmlpPqiUD0/ylSayZMkr1hKSC6EqaPOfWLCZvmRpQ2JbOOzI8ZvuZMbhlZ4vWHfZ0LXC8yS+3U2q0T0Uy0fndZz50A9NyNcfBLRaO5s53ciu0dgUDbaa3a39m24KWaQDutMPxapuYbFEci0imMxgdxA9DOhK8SODeF+KG0IeM/F4juSDSQZdnAjL/xIQ9ZHBAZs2DyKTjwgmNeO5p4n+jMLBb2qX5rejy2X0V+vM65Ixl+7P9/MlWHD0DCfOSg8Oo+0neSXaUXrzgJMd4EE=
+  app: ece-devops-project
+  on:
+    repo: sarahkaddour/devops
