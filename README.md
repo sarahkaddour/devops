@@ -69,3 +69,7 @@ sergei@adaltas.com
 TEST 2
 
 Test CI
+
+
+## Docker
+docker run -p 3000:3000 -v /usr/src/app/db sarahkaddour/devopsproject

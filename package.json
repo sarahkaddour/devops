@@ -10,8 +10,14 @@
   "author": "Sergei Kudinov <sergei@adaltas.com>",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^4.4.1",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mixme": "^0.3.5"
+    "mixme": "^0.3.5",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.7",
+    "mysql": "^2.18.1",
+    "nunjucks": "^3.2.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
