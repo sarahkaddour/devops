@@ -1,16 +1,19 @@
 {
-  "name": "ece-userapi-2",
-  "version": "1.2.0",
-  "description": "Simple http-server with a user API",
+  "name": "devops_project",
+  "version": "1.1.0",
+  "description": "Simple full-stack application",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha test/*.js",
-    "start": "node src/index.js"
+    "server": "cd devops_backend && npm start",
+    "react": "cd devops_frontend  && npm start",
+    "start": "concurrently \"npm run server\" \"npm run react\""
   },
-  "author": "Sergei Kudinov <sergei@adaltas.com>",
+  "author": "Sarah KADDOUR <sarah.kaddour@outlook.fr>",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "concurrently": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mixme": "^0.3.5",
