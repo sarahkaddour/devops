@@ -2,6 +2,7 @@ language: node_js
 node_js:
 - '12'
 - '13'
+services: mongodb
 script:
 - echo 'Starting'
 - npm install
