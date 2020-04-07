@@ -2,19 +2,13 @@
 
 Simple http-server with a user API
 
-##  TODO
-
-* Clone this repo and using [duplicating](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/duplicating-a-repository) create your own repository on GitHub or GitLab
-* **Important!** Make your repository **PRIVATE**
-* Find all the TODO comments and enrich this app
-* If you have questions, ask me by email sergei@adaltas.com (link your private repo, if you have technical questions and invite me to you project)
-
 ## Functionality
 
 * Uses default configuration with a path of the file storage
 * Start http-server
 * Create a user
 * Get a user information
+* Delete a user
 
 ## Installation
 
@@ -29,7 +23,7 @@ npm install
 npm start
 ```
 
-Go to `http://localhost:3000`
+Go to `http://localhost:8000`
 
 ### Using Postman app
 
@@ -44,11 +38,18 @@ Body parameters:
 {
   username: 'toto',
   firstname: 'toto-firstname',
-  lastname: 'toto-lastname'
+  lastname: 'toto-lastname',
+  team: 'Green'
 }
 ```
 
 2. GET user by username
+
+```
+http://localhost:3000/user/sergkudinov
+```
+
+3. DELETE user 
 
 ```
 http://localhost:3000/user/sergkudinov
@@ -61,10 +62,10 @@ Run tests:
 npm test
 ```
 
-## Author
+## Authors
 
-Sergei Kudinov   
-sergei@adaltas.com
+Sarah KADDOUR sarah.kaddour@edu.ece.fr
+Celine BENIDDIR celine.beniddir@edu.ece.fr
 
 TEST 2
 

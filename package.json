@@ -4,7 +4,7 @@
   "description": "Simple full-stack application",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha test/*.js",
+    "test": "./node_modules/.bin/mocha --exit test/*.js",
     "server": "cd devops_backend && npm start",
     "react": "cd devops_frontend  && npm start",
     "start": "concurrently \"npm run server\" \"npm run react\""
@@ -25,6 +25,6 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "mocha": "^7.0.1"
+    "mocha": "^7.1.1"
   }
 }

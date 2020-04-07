@@ -2,11 +2,13 @@ language: node_js
 node_js:
 - '12'
 - '13'
+services: mongodb
 script:
 - echo 'Starting'
 - npm install
 - echo 'Testing'
-- npm test
+- npm test 
+after_script: echo 'Done'
 deploy:
   provider: heroku
   api_key:
