@@ -7,11 +7,6 @@ chai.use(chaiHttp)
 describe('Users REST API', ()=> {
 
   describe('POST /user/', ()=> {
-    // after(()=> {
-    //   app.close(() => {
-    //     console.log('Http server closed.');
-    //   })
-    // })
     it('creates a new user', (done)=> {
       const user = {
         username: 'sergkudino',
@@ -35,12 +30,6 @@ describe('Users REST API', ()=> {
   })
 
   describe('GET /user/:username', ()=> {
-    // after(()=> {
-    //   app.close(() => {
-    //     console.log('Http server closed.');
-    //   })
-    // })
-
     it('gets a user', (done)=> {
       const username = 'sergkudino';
       chai.request(app)
