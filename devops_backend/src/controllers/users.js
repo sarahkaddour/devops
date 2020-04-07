@@ -18,7 +18,7 @@ module.exports = {
 
     // Check if user already exists
     User.findOne({username: username}, function(err, data) {
-      if (err || checkIfUserExists(username)) return callback(new Error('The username already exists'), null);
+      if (err || data !== null) return callback(new Error('The username already exists'), null);
     
       // Create an instance of model User and save it passing a callback
       var newUser = new User({ username: username, firstname: firstname, lastname: lastname, team: team });
@@ -42,10 +42,6 @@ module.exports = {
     checkIfUserExists(username);
     User.deleteOne({username: username}, function(err, data) {
       if (err) return callback(new Error(`Error while trying to delete user ${username} in the database`), null);
-      User.findOne({username: username}, function(err, data) {
-        console.log(data);
-        if (data) return callback(new Error(`Error while trying to find user ${username} in the database`), null);
-      });
       callback(null, data);
     });
   }

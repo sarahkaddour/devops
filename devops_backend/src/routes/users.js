@@ -17,7 +17,7 @@ usersRouter
           message: err.message,
         }
       });
-      res.status(200).json({ username: result });
+      res.status(201).json({ username: result });
     })
   })
   .get('/:username', (req, res, next) => { // Express URL params - https://expressjs.com/en/guide/routing.html
@@ -44,7 +44,7 @@ usersRouter
           message: err.message,
         }
       });
-      res.status(204).send("User deleted successfully");
+      res.status(204).json({message: "User deleted successfully"});
     })
   })
 

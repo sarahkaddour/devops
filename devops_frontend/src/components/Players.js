@@ -4,7 +4,6 @@ import { Button, Row, Col } from 'react-bootstrap';
 import BootstrapTable from 'react-bootstrap-table-next';
 import "bootstrap/dist/css/bootstrap.min.css";
 import CreatePlayerDialog from './Dialogs/CreatePlayerDialog';
-import UpdatePlayerDialog from './Dialogs/UpdatePlayerDialog';
 
 export default class Players extends PureComponent {
 
@@ -15,10 +14,8 @@ export default class Players extends PureComponent {
       players: [],
       selected: null,
       shouldOpenCreatePlayerModal: false,
-      shouldOpenUpdatePlayerDialog: false,
     }
     this.handleOnSelect = this.handleOnSelect.bind(this);
-    this.openUpdatePlayerDialog = this.openUpdatePlayerDialog.bind(this);
     this.openCreatePlayerDialog = this.openCreatePlayerDialog.bind(this);
     this.deletePlayerRequest = this.deletePlayerRequest.bind(this);
   }
@@ -72,19 +69,6 @@ export default class Players extends PureComponent {
     this.getPlayersRequest();
   }
 
-  openUpdatePlayerDialog(){
-    this.setState({
-      shouldOpenUpdatePlayerDialog: true,
-    })
-  }
-
-  closeUpdatePlayerDialog = () => {
-    this.setState({
-      shouldOpenUpdatePlayerDialog: false,
-    });
-    this.handleAfterRequest();
-  }
-
     openCreatePlayerDialog(){
       this.setState({
         shouldOpenCreatePlayerModal: true,
@@ -95,7 +79,10 @@ export default class Players extends PureComponent {
         this.setState({
             shouldOpenCreatePlayerModal: false,
         });
+        console.log('create request');
         this.handleAfterRequest();
+        console.log('create request');
+
       }
 
 render(){
@@ -114,7 +101,7 @@ render(){
     text: 'Team'
   }];
 
-  const { shouldOpenCreatePlayerModal, shouldOpenUpdatePlayerDialog, selected} = this.state;
+  const { shouldOpenCreatePlayerModal, selected} = this.state;
   const selectRow = {
     mode: 'radio',
     clickToSelect: true,
@@ -125,7 +112,6 @@ render(){
   return(
     <Fragment>
         {shouldOpenCreatePlayerModal ? <CreatePlayerDialog toggle={this.closeCreatePlayerDialog}/>: null}
-        {shouldOpenUpdatePlayerDialog ? <UpdatePlayerDialog selected={selected} toggle={this.closeUpdatePlayerDialog}/>: null}
         <div className="homepage">
             <h1>Players</h1>
             <BootstrapTable 
@@ -142,14 +128,11 @@ render(){
             />
 
             <Row style={{ margin:'5px'}}>
-                <Button style={{width: 500}} variant="success" onClick={this.openCreatePlayerDialog}><i className="fa fa-plus" aria-hidden="true"></i> Add a new player </Button>
-            </Row>
-            <Row style={{textAlign: 'center'}}>
               <Col>
-                <Button style={{width: 230}} variant="warning"disabled={disabled} onClick={this.openUpdatePlayerDialog}><i className="fa fa-pencil" aria-hidden="true"></i> Update player informations </Button>
+                <Button style={{width: 300}} variant="success" onClick={this.openCreatePlayerDialog}><i className="fa fa-plus" aria-hidden="true"></i> Add a new player </Button>
               </Col>
               <Col>
-                <Button style={{width: 230}} variant="danger" disabled={disabled} onClick={this.deletePlayerRequest}><i className="fa fa-trash" aria-hidden="true"></i> Delete a player </Button>
+                <Button style={{width: 300}} variant="danger" disabled={disabled} onClick={this.deletePlayerRequest}><i className="fa fa-trash" aria-hidden="true"></i> Delete a player </Button>
               </Col>
             </Row>
         </div>
