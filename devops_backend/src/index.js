@@ -13,13 +13,19 @@ app.use(bodyparser.urlencoded({
   extended: true
 }));
 
-mongoose.connect('mongodb://localhost:27017/devops', { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect('mongodb://localhost/devops', { useNewUrlParser: true, useUnifiedTopology: true });
 
-mongoose.connection.on('open', (err) => {
-  if (err) throw err;
-  console.log('Connected to mongodb server.');
-})
-mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+// mongoose.connection.on('open', (err) => {
+//   if (err) throw err;
+//   console.log('Connected to mongodb server.');
+// })
+// mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+mongoose.connect('mongodb+srv://skaddour:cbeniddir@devopscluster-1axez.mongodb.net/test?retryWrites=true&w=majority',
+  { useNewUrlParser: true,
+    useUnifiedTopology: true })
+  .then(() => console.log('Connected to MongoDB!'))
+  .catch(() => console.log('Failed to connect to MongoDB!'));
 
 app.get('/', (req, res) => {
   //TODO
