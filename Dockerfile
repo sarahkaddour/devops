@@ -6,15 +6,16 @@ WORKDIR /usr/src/app
 RUN \
     apt-get update && \
     apt-get install -y git && \
-    npm i lerna -g --loglevel notice && \
-    npm i bunyan -g --loglevel notice && \
+    apt-get install -y nodejs \
+    npm install lerna && \
+    npm install bunyan && \
     rm -rf /var/lib/apt/lists/*
-    
+
 COPY package.json .
 RUN npm install --loglevel notice
 
 COPY packages/devops_backend ./packages/devops_backend
-COPY packages/devops_frontend ./packages/app1-devops_frontend
+COPY packages/devops_frontend ./packages/devops_frontend
 
 #EXPOSE 8000
 
