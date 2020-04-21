@@ -41,5 +41,6 @@
   "devDependencies": {
     "concurrently": "^5.1.0",
     "webpack-config": "^7.5.0"
-  }
+  },
+    "proxy" : "http://localhost:3000"
 }
