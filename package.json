@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --exit test/*.js",
-    "server": "cd devops_backend && npm start",
-    "react": "cd devops_frontend  && npm start",
+    "server": "cd packages/devops_backend && npm start",
+    "react": "cd packages/devops_frontend  && npm start",
     "start": "concurrently \"npm run server\" \"npm run react\""
   },
   "author": "Sarah KADDOUR <sarah.kaddour@outlook.fr>",
@@ -25,6 +25,10 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "lerna": "^3.20.2",
     "mocha": "^7.1.1"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

@@ -7,6 +7,7 @@
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "child_process": "^1.0.2",
+    "common": "^0.2.5",
     "font-awesome": "^4.7.0",
     "react": "^16.11.0",
     "react-bootstrap": "^1.0.0-beta.14",
@@ -42,5 +43,5 @@
     "concurrently": "^5.1.0",
     "webpack-config": "^7.5.0"
   },
-    "proxy" : "http://localhost:3000"
+  "proxy": "http://localhost:3000"
 }
