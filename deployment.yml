@@ -1,34 +1,34 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: devopsdeployment
+  name: devops
   labels:
-    app: nginx
+    app: devops
 spec:
   type: LoadBalancer
   ports:
-  - port: 80
+  - port: 3000
   selector:
-    app: nginx
+    app: devops
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-nginx
+  name: devops
   labels:
-    app: nginx
+    app: devops
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: devops
   template:
     metadata:
       labels:
-        app: nginx
+        app: devops
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.14.2
+      - name: devops
+        image: negrillon/devopsimage:latest
         ports:
-        - containerPort: 80
+        - containerPort: 3000

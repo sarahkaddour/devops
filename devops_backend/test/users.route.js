@@ -1,6 +1,6 @@
 var chai = require('chai')
 var chaiHttp = require('chai-http')
-const app = require('../devops_backend/src/index')
+const app = require('../src/index')
 
 chai.use(chaiHttp)
 

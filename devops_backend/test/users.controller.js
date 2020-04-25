@@ -1,6 +1,6 @@
 const {expect} = require('chai')
 const path = require('path')
-const users = require('../devops_backend/src/controllers/users')
+const users = require('../src/controllers/users')
 const fs = require('fs')
 
 describe('Users', ()=> {
