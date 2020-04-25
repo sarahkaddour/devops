@@ -1,0 +1,10 @@
+version: '2.0'
+services:
+    backend:
+        build: ./devops_backend
+        ports:
+            - "8000:3000"
+    frontend:
+        build: ./devops_frontend
+        ports:
+            - "80:80"
