@@ -4,7 +4,7 @@
   "description": "Simple full-stack application",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --exit test/*.js",
+    "test": "cd devops_backend && npm test",
     "server": "cd devops_backend && npm start",
     "react": "cd devops_frontend  && npm start",
     "start": "concurrently \"npm run server\" \"npm run react\""
