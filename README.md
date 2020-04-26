@@ -1,6 +1,6 @@
 <h1 align="center">Users manager - a DevOps project</h1>
 <p align="center">
-  Simple fullstack app with a user a frontend API
+  Simple fullstack app with a user and a frontend API
 </p>
 
 ## 🍯 Functionalities
