@@ -1,39 +1,42 @@
-# User API http-server
+<h1 align="center">Users manager - a DevOps project</h1>
+<p align="center">
+  Simple fullstack app with a user a frontend API
+</p>
 
-Simple http-server with a user API
-
-## Functionality
-
-* Connects to mongodb database (BONUS)
+## 🍯 Functionalities
+### Features:
 * Start http-server
 * Create a user
 * Get a user information
-* Delete a user (BONUS)
 * Unit tests
-* Front-end app (BONUS)
-* E2E tests (BONUS)
 
-## Installation
+### Bonus tasks:
+* Connecting to mongodb database
+* Delete a user
+* Front-end microservice
+* E2E tests
+
+## 🔨 Installation
 
 ```
 git clone ...
 npm install
 ```
 
-## Usage
+## 🚀 Usage
 To run both backend and frontend:
 ```
 npm start
 ```
 
-Go to `http://localhost:3000`
+Then go to `http://localhost:3000` on your browser
 
 ### Using Postman app
 
 1. POST Create user:
 
 ```
-http://localhost:3000/user/
+http://localhost:8000/user/
 ```
 
 Body parameters:
@@ -49,56 +52,81 @@ Body parameters:
 2. GET user by username
 
 ```
-http://localhost:3000/user/sergkudinov
+http://localhost:8000/user/:username
 ```
 Params parameters:
 ```
 {
   username: 'toto'
 }
+
+```
 
 3. DELETE user 
-
 ```
-http://localhost:3000/user/sergkudinov
+http://localhost:8000/user/:username
 ```
 Params parameters:
 ```
 {
   username: 'toto'
 }
+```
 
 
 
-## Developer
+## ✏️ Testing
 
-Run tests:
+### Unit tests
+At the root of the project, run:
 ```
 npm test
 ```
 
-## Authors
+### E2E tests
+At the root of the project, run:
+```
+npm test
+```
+## 🌎 Deployment
 
-Sarah KADDOUR <sarah.kaddour@edu.ece.fr>
-Celine BENIDDIR <celine.beniddir@edu.ece.fr>
+### Travis CI
 
-TEST 2
+### Heroku
 
-Test CI
+### Docker
+Run frontend and backend separately:
+- To build a docker image (frontend and backend separately):
+```
+cd devops_backend
+docker build -t sarahkaddour/imagebackend:1.0 .
+docker run -p 3000:3000 sarahkaddour/imagebackend:1.0
+cd devops_frontend
+docker run -p 80:80 sarahkaddour/imagebackend:1.0
+```
 
-## Travis CI
+- To build a docker image using docker compose, at the root of the project:
+```
+docker-compose up
+```
 
-## Heroku
+### Kubernetes
+* Deploying the app using your file deployment.yml:
+```
+kubectl create deployment <your_deployment_name> --image=<username>/<imagename>:<tag>
+kubectl expose deployment <your_deployment_name> --type=NodePort --port=<YOUR_PORT>
+kubectl apply
+```
 
-## Docker
-docker run -p 3000:3000 -v /usr/src/app/db sarahkaddour/devopsproject
 
-## Kubernetes
+## 🤝 Authors
+
+- *Celine BENIDDIR* -  [@cbeniddir](https://twitter.com/cbeniddir) <br/>
+- *Sarah KADDOUR* -  [@sarahkaddour](https://github.com/sarahkaddour)
 
 
 ## TODO
 - List of all the work performed (briefly, describing features and bonus tasks)
 - Installing / running / using / testing / deployment instructions (everyone is needed)
 - All the necessary links with the tools integrated (Travis CI, Heroku, Docker Hub ... )
-- OK List of collaborators 
 - Other additional info you want to include
