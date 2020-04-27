@@ -15,9 +15,10 @@
 * Create a user
 * Get a user information
 * Unit tests
+* Travis CI deployment
 * Heroku deployment
-* Travis deployment
 * Docker deployment
+* Minikube & Kubernetes
 
 ### Bonus tasks:
 * Connecting to mongodb database
@@ -95,11 +96,10 @@ npm test
 ### E2E tests
 At the root of the project, run:
 ```
-npm test
+npm run test:cy
 ```
-## 🌎 Deployment
 
-### Travis CI
+## 🌎 Deployment
 
 ### Heroku
 Deploy on Heroku (synchronized with GitHub)
