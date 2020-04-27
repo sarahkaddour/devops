@@ -4,7 +4,7 @@
   "description": "Simple full-stack application",
   "main": "index.js",
   "scripts": {
-    "test": "cd devops_backend && npm test",
+    "test": "cd devops_backend && npm test --exit",
     "test:cy": "cd devops_frontend && npm run cy:run",
     "server": "cd devops_backend && npm start",
     "react": "cd devops_frontend  && npm start",
