@@ -24,7 +24,7 @@
 * Connecting to mongodb database
 * Delete a user
 * Front-end microservice
-* E2E tests
+* E2E tests using Cypress
 
 ## 🔨 Installation
 
@@ -93,8 +93,12 @@ At the root of the project, run:
 npm test
 ```
 
-### E2E tests
-At the root of the project, run:
+### E2E tests using Cypress
+At the root of the project, in 2 different terminals, run:
+```
+npm start
+```
+and
 ```
 npm run test:cy
 ```
