@@ -5,7 +5,6 @@ const app = require('../src/index')
 chai.use(chaiHttp)
 
 describe('Users REST API', ()=> {
-
   describe('POST /user/', ()=> {
     it('creates a new user', (done)=> {
       const user = {
