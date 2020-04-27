@@ -4,7 +4,7 @@ import {Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import axios from 'axios';
 
 
-export default class CreatePlayerDialog extends Component {
+export default class CreateUserDialog extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -32,11 +32,11 @@ export default class CreatePlayerDialog extends Component {
         return await axios(config)
         .then((response) => {
           if(response.status === 200){
-            console.log('Player added');
+            console.log('User added');
           } 
         })
         .catch((err) => {
-          console.log('error Player');
+          console.log('error User');
           this.setState({ error: err.message });
         });
       }
@@ -61,7 +61,7 @@ export default class CreatePlayerDialog extends Component {
 
         return(
             <Modal isOpen toggle={this.props.toggle} backdrop={true}>
-              <ModalHeader toggle={this.props.toggle}> Add a new player </ModalHeader>
+              <ModalHeader toggle={this.props.toggle}> Add a new user </ModalHeader>
               <ModalBody>
                 <Form
               className="sign-up-form"

@@ -29,6 +29,6 @@ spec:
     spec:
       containers:
       - name: devops
-        image: negrillon/devopsimage:latest
+        image: sarahkaddour/devopsimage:latest
         ports:
         - containerPort: 3000

@@ -1,17 +1,9 @@
 const {expect} = require('chai')
-const path = require('path')
 const users = require('../src/controllers/users')
-const fs = require('fs')
 
 describe('Users', ()=> {
 
   describe('Create', ()=> {
-    // beforeEach((done) => {
-    //   config = configure()
-    //   fs.writeFile(config.users.db_dir, '', () => {
-    //     done()
-    //   })
-    // })
 
     it('create user', (done)=> {
       const user = {

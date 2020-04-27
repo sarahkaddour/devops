@@ -5,7 +5,7 @@ class Footer extends Component {
 
     return (
       <div className="Footer">
-        <p>Céline BENIDDIR & Sarah KADDOUR ♥ </p>
+        <p>Designed by Céline BENIDDIR & Sarah KADDOUR ♥ </p>
       </div>
     );
   }

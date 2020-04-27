@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cd devops_backend && npm test",
+    "test:cy": "cd devops_frontend && npm run cy:run",
     "server": "cd devops_backend && npm start",
     "react": "cd devops_frontend  && npm start",
     "start": "concurrently \"npm run server\" \"npm run react\""
@@ -15,6 +16,7 @@
     "bootstrap": "^4.4.1",
     "concurrently": "^5.1.0",
     "cors": "^2.8.5",
+    "cypress": "^4.4.1",
     "express": "^4.17.1",
     "mixme": "^0.3.5",
     "mongodb": "^3.5.5",

@@ -3,51 +3,51 @@ import axios from 'axios';
 import { Button, Row, Col } from 'react-bootstrap';
 import BootstrapTable from 'react-bootstrap-table-next';
 import "bootstrap/dist/css/bootstrap.min.css";
-import CreatePlayerDialog from './Dialogs/CreatePlayerDialog';
+import CreateUserDialog from './CreateUserDialog';
 
-export default class Players extends PureComponent {
+export default class Users extends PureComponent {
 
   constructor(props){
     super(props)
     this.state = {
       loggedIn: true,
-      players: [],
+      users: [],
       selected: null,
-      shouldOpenCreatePlayerModal: false,
+      shouldOpenCreateUserModal: false,
     }
     this.handleOnSelect = this.handleOnSelect.bind(this);
-    this.openCreatePlayerDialog = this.openCreatePlayerDialog.bind(this);
-    this.deletePlayerRequest = this.deletePlayerRequest.bind(this);
+    this.openCreateUserDialog = this.openCreateUserDialog.bind(this);
+    this.deleteUserRequest = this.deleteUserRequest.bind(this);
   }
 
   componentDidMount(){
-    this.getPlayersRequest();
+    this.getUsersRequest();
   }
 
-  async getPlayersRequest() {
-    const getPlayers = {
+  async getUsersRequest() {
+    const getUsers = {
       method: 'get',
       url: `http://localhost:8000/`,
     };
 
-    return await axios(getPlayers)
+    return await axios(getUsers)
     .then((response) => {
-       this.getAllPlayers(response.data);
+       this.getAllUsers(response.data);
     })
     .catch((err) => {
       console.log(err.message);
     });
   }
-  async deletePlayerRequest() {
+  async deleteUserRequest() {
     let username = this.state.selected.username;
-    const deletePlayers = {
+    const deleteUsers = {
       method: 'delete',
       url: `http://localhost:8000/user/${username}`,
       headers: { 'Content-Type': 'application/json'},
   }
-    return await axios(deletePlayers)
+    return await axios(deleteUsers)
     .then((response) => {
-      console.log("Player deleted");
+      console.log("User deleted");
       this.handleAfterRequest();
     })
     .catch((err) => {
@@ -55,8 +55,8 @@ export default class Players extends PureComponent {
     });
   }
   
-  getAllPlayers(players){
-    this.setState({ players: players });
+  getAllUsers(users){
+    this.setState({ users: users });
   }
 
   handleOnSelect(row){
@@ -66,27 +66,24 @@ export default class Players extends PureComponent {
 }
 
   handleAfterRequest(){
-    this.getPlayersRequest();
+    this.getUsersRequest();
   }
 
-    openCreatePlayerDialog(){
+    openCreateUserDialog(){
       this.setState({
-        shouldOpenCreatePlayerModal: true,
+        shouldOpenCreateUserModal: true,
       });
     }
 
-    closeCreatePlayerDialog = () => {
+    closeCreateUserDialog = () => {
         this.setState({
-            shouldOpenCreatePlayerModal: false,
+            shouldOpenCreateUserModal: false,
         });
-        console.log('create request');
         this.handleAfterRequest();
-        console.log('create request');
-
       }
 
 render(){
-  const players = this.state.players;
+  const users = this.state.users;
   const columns = [{
     dataField: 'username',
     text: 'Username'
@@ -101,38 +98,39 @@ render(){
     text: 'Team'
   }];
 
-  const { shouldOpenCreatePlayerModal, selected} = this.state;
+  const { shouldOpenCreateUserModal, selected} = this.state;
   const selectRow = {
     mode: 'radio',
     clickToSelect: true,
     onSelect: this.handleOnSelect,
-    style: { backgroundColor: '#dc3545' }
+    style: { backgroundColor: '#94B2C9' }
   };
   const disabled = !selected;
   return(
     <Fragment>
-        {shouldOpenCreatePlayerModal ? <CreatePlayerDialog toggle={this.closeCreatePlayerDialog}/>: null}
+        {shouldOpenCreateUserModal ? <CreateUserDialog toggle={this.closeCreateUserDialog}/>: null}
         <div className="homepage">
-            <h1>Players</h1>
+            <h1>Users Manager</h1>
             <BootstrapTable 
                 className = 'table'
+                id='table'
                 keyField='id'
                 remote={ true }
-                data={ players } 
+                data={ users } 
                 columns={ columns }
                 striped
                 hover
                 selectRow={ selectRow }
                 deleteRow={ true }
-                noDataIndication = 'No players'
+                noDataIndication = 'No users'
             />
 
             <Row style={{ margin:'5px'}}>
               <Col>
-                <Button style={{width: 300}} variant="success" onClick={this.openCreatePlayerDialog}><i className="fa fa-plus" aria-hidden="true"></i> Add a new player </Button>
+                <Button style={{width: 300}} variant="submit" className ="add" onClick={this.openCreateUserDialog}><i className="fa fa-plus"></i> Add a user </Button>
               </Col>
               <Col>
-                <Button style={{width: 300}} variant="danger" disabled={disabled} onClick={this.deletePlayerRequest}><i className="fa fa-trash" aria-hidden="true"></i> Delete a player </Button>
+                <Button style={{width: 300}} variant="submit" className ="delete" disabled={disabled} onClick={this.deleteUserRequest}><i className="fa fa-trash"></i> Delete a user </Button>
               </Col>
             </Row>
         </div>

@@ -13,14 +13,6 @@ app.use(bodyparser.urlencoded({
   extended: true
 }));
 
-// mongoose.connect('mongodb://localhost/devops', { useNewUrlParser: true, useUnifiedTopology: true });
-
-// mongoose.connection.on('open', (err) => {
-//   if (err) throw err;
-//   console.log('Connected to mongodb server.');
-// })
-// mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
 mongoose.connect('mongodb+srv://skaddour:cbeniddir@devopscluster-1axez.mongodb.net/test?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })

@@ -1,7 +1,4 @@
 var User = require ('../models/User');
-configure = require('../configure')
-conig = configure()
-
 
 function checkIfUserExists(username){
   User.findOne({username: username}, function(err, data) {
