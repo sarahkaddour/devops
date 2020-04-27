@@ -3,12 +3,21 @@
   Simple fullstack app with a user and a frontend API
 </p>
 
+
+## 🤝 Authors
+
+- *Celine BENIDDIR* -  [@cbeniddir](https://twitter.com/cbeniddir) <br/>
+- *Sarah KADDOUR* -  [@sarahkaddour](https://github.com/sarahkaddour)
+
 ## 🍯 Functionalities
 ### Features:
 * Start http-server
 * Create a user
 * Get a user information
 * Unit tests
+* Heroku deployment
+* Travis deployment
+* Docker deployment
 
 ### Bonus tasks:
 * Connecting to mongodb database
@@ -93,40 +102,69 @@ npm test
 ### Travis CI
 
 ### Heroku
+Deploy on Heroku (synchronized with GitHub)
+
+```
+git add --all
+git commit -m "commit message"
+git push heroku master
+```
 
 ### Docker
-Run frontend and backend separately:
-- To build a docker image (frontend and backend separately):
+#### Run frontend and backend separately:
+* Build the frontend app before building docker images, in the devops_frontend folder run:
 ```
-cd devops_backend
-docker build -t sarahkaddour/imagebackend:1.0 .
-docker run -p 3000:3000 sarahkaddour/imagebackend:1.0
-cd devops_frontend
-docker run -p 80:80 sarahkaddour/imagebackend:1.0
+npm build
 ```
 
-- To build a docker image using docker compose, at the root of the project:
+* To build and run docker images:
+For backend:
+```
+cd devops_backend
+docker build -t <docker-account-name>/<custom-image-name-backend>:1.0 .
+docker run -p 3000:3000 <docker-account-name>/<custom-image-name-backend>:1.0
+```
+For frontend:
+```
+cd devops_frontend
+docker build -t <docker-account-name>/<custom-image-name-frontend>:1.0 .
+docker run -p 80:80 <docker-account-name>/<custom-image-name-frontend>:1.0
+```
+
+#### Run a docker images simultaneously using docker compose
+- Build the frontend app
+```
+cd devops_frontend
+npm build
+```
+- At the root of the project run:
 ```
 docker-compose up
 ```
 
 ### Kubernetes
-* Deploying the app using your file deployment.yml:
-```
+#### Deploying the app using kubectl:
+1. Create a Deployment
+```bash
 kubectl create deployment <your_deployment_name> --image=<username>/<imagename>:<tag>
-kubectl expose deployment <your_deployment_name> --type=NodePort --port=<YOUR_PORT>
-kubectl apply
 ```
 
+2. To access your app Deployment, expose it as a Service:
 
-## 🤝 Authors
+```bash
+kubectl expose deployment <your_deployment_name> --type=NodePort --port=<YOUR_PORT>
+```
 
-- *Celine BENIDDIR* -  [@cbeniddir](https://twitter.com/cbeniddir) <br/>
-- *Sarah KADDOUR* -  [@sarahkaddour](https://github.com/sarahkaddour)
+3. Explore docker containers and images, pods, deployments, services using:
 
+- `docker ps`
+- `kubectl`
+- the Dashboard
 
-## TODO
-- List of all the work performed (briefly, describing features and bonus tasks)
-- Installing / running / using / testing / deployment instructions (everyone is needed)
-- All the necessary links with the tools integrated (Travis CI, Heroku, Docker Hub ... )
-- Other additional info you want to include
+4. Access to your app
+
+Run a command `minikube service <your_deployment_name> --url` and navigate to the link.
+
+#### Deploy an app using Manifest yaml file: deplyoyment.yml
+
+Run with ```kubectl apply [OPTIONS]```
