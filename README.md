@@ -16,7 +16,7 @@
 * Get a user information
 * Unit tests
 * Travis CI deployment
-* Heroku deployment
+* Heroku deployment: https://devops-sarah-celine.herokuapp.com/
 * Docker deployment
 * Minikube & Kubernetes
 
@@ -112,6 +112,7 @@ Deploy on Heroku (synchronized with GitHub)
 git add --all
 git commit -m "commit message"
 git push heroku master
+heroku open
 ```
 
 ### Docker
