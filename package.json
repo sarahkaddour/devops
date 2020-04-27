@@ -4,7 +4,7 @@
   "description": "Simple full-stack application",
   "main": "index.js",
   "scripts": {
-    "test": "cd devops_backend && npm test --exit",
+    "test": "cd devops_backend && npm test",
     "test:cy": "cd devops_frontend && npm run cy:run",
     "server": "cd devops_backend && npm start",
     "react": "cd devops_frontend  && npm start",
@@ -22,11 +22,17 @@
     "mongodb": "^3.5.5",
     "mongoose": "^5.9.7",
     "mysql": "^2.18.1",
-    "nunjucks": "^3.2.1"
+    "nunjucks": "^3.2.1",
+    "react-scripts": "1.0.7",
+    "axios": "0.9.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "mocha": "^7.1.1"
+  },
+  "engines": {
+    "node": "7.8.0",
+    "npm": "4.2.0"
   }
 }
