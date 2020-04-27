@@ -32,6 +32,7 @@
 git clone ...
 npm install
 ```
+(Note that you will maybe need to run this command at both devops_backend and devops_frontend folders)
 
 ## 🚀 Usage
 To run both backend and frontend:
